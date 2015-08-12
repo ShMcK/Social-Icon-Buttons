@@ -1,7 +1,7 @@
-# Social Buttons in Raw JS
+# Social Buttons in Vanilla JS
 
-in folder
+Run a server, for example [http-server](https://www.npmjs.com/package/http-server).
 
     http-server
     
-open file
+Open `index.html`
