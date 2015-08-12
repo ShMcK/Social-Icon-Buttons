@@ -1,0 +1,23 @@
+.social-icons {
+  padding: 40px;
+}
+
+.social-icon-group {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.social-icon-group a {
+  text-decoration: none;
+  color: grey;
+}
+
+.social-icon-group a:hover {
+  color: black;
+}
+
+.social-icon-group span {
+  margin-left: 5px;
+  color: grey;
+  font-size: 0.8em;
+}
