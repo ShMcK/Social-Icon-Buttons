@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <title>Social Icons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="social-buttons.css" />
+</head>
+<body>
+
+<section class="social-icons">
+  <div class="social-icon-group">
+    <a href="//www.facebook.com/sharer/sharer.php"
+       onClick="callFacebookAPI(); return false;">
+      <i class="fa fa-facebook"></i>
+    </a>
+    <span class="fbCount">0</span>
+  </div>
+  <div class="social-icon-group">
+    <a href="twitter.com/share" rel="canonical"
+       onClick="callTwitterAPI(); return false;">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <span class="twCount">0</span>
+  </div>
+</section>
+
+<script src="social-buttons.js"></script>
+</body>
+</html>
