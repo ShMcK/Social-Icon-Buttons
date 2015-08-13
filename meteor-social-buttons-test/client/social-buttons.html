@@ -1,0 +1,12 @@
+<template name="social_buttons">
+  <section class="social-buttons">
+    {{#each socialButtons}}
+      <div class="social-button-group">
+        <a href="{{link}}" target="_blank" class="social-button" id="{{name}}">
+          <i class="{{classNames}}"></i>
+        </a>
+        <span class="fbCount">0</span>
+      </div>
+    {{/each}}
+  </section>
+</template>
