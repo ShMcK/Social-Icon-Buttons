@@ -49,6 +49,21 @@ var SOCIAL_BUTTON_DATA = {
 
 var selectedSocialButtons = selectFromData(SETTINGS, SOCIAL_BUTTON_DATA);
 
+function incrementCount(endValue, name) {
+  var times = 0;
+  var incrementer = {};
+  incrementer[name] = setInterval(function () {
+    // set new current
+    var newValue = Math.ceil(endValue / times);
+    // change DOM value
+    document.getElementsByClassName(name + '-count')[0].innerHTML = newValue;
+    // exit on 10th increment
+    if (++times === 10) {
+      window.clearInterval(incrementer[name]);
+    }
+  }, 100);
+}
+
 Template.social_buttons.helpers({
   'socialButtons': function () {
     return selectedSocialButtons;
@@ -59,13 +74,7 @@ Template.social_buttons.events({
   'click .social-button': function (event) {
     var socialTarget = event.currentTarget.id;
     event.preventDefault();
-
     var socialData = SOCIAL_BUTTON_DATA[socialTarget];
-
-    if (!SETTINGS.incrementing) {
-      socialData.openWindow(encodeURI(document.URL), encodeURI(document.title));
-    } else {
-
-    }
+    socialData.openWindow(encodeURI(document.URL), encodeURI(document.title));
   }
 });
