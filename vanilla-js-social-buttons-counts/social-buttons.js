@@ -48,7 +48,7 @@ function incrementCount(endValue, name) {
     // set new current
     var newValue = Math.ceil(endValue / times);
     // change DOM value
-    document.getElementsByClassName("fbCount")[0].innerHTML = newValue;
+    document.getElementsByClassName(name)[0].innerHTML = newValue;
     // exit on 10th increment
     if (++times === 10) {
       window.clearInterval(incrementer[name]);

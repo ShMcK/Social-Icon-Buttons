@@ -1,33 +1,71 @@
-var socialButtonData = [{
-  link: '//www.facebook.com/sharer/sharer.php?u={{url}}&t={{title}}',
-  classNames: 'fa fa-facebook',
-  width: 300,
-  height: 600,
-  name: 'facebook'
-}, {
-  link: '//plus.google.com/share?url={{url}}',
-  classNames: 'fa fa-google-plus',
-  width: 300,
-  height: 600,
-  name: 'google'
-}, {
-  link: '//twitter.com/share?text={{title}}',
-  classNames: 'fa fa-twitter',
-  width: 550,
-  height: 235,
-  name: 'twitter'
-}];
+var SOCIAL_BUTTON_DEFAULTS = {
+  facebook: true,
+  twitter: true,
+  google: false,
+  incrementing: false
+};
+var SOCIAL_BUTTON_SETTINGS = {
+  incrementing: false
+};
+var SETTINGS = _.extend(SOCIAL_BUTTON_DEFAULTS, SOCIAL_BUTTON_SETTINGS);
+
+function selectFromData(selected, values) {
+  var array = [];
+  for (var key in selected) {
+    if (selected.hasOwnProperty(key) && selected[key]) {
+      array.push(values[key]);
+    }
+  }
+  return array;
+}
+
+var SOCIAL_BUTTON_DATA = {
+  facebook: {
+    link: '//www.facebook.com/sharer/sharer.php?u={{url}}&t={{title}}',
+    classNames: 'fa fa-facebook',
+    name: 'facebook',
+    measure: 'shares',
+    openWindow: function (url, text) {
+      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + text, this.name, 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    }
+  },
+  google: {
+    link: '//plus.google.com/share?url={{url}}',
+    classNames: 'fa fa-google-plus',
+    width: 300,
+    height: 600,
+    name: 'google'
+  },
+  twitter: {
+    link: '//twitter.com/share?text={{title}}',
+    classNames: 'fa fa-twitter',
+    name: 'twitter',
+    measure: 'counts',
+    openWindow: function (url, text) {
+      window.open('//twitter.com/share?text=' + text, this.name, 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=255, width=550');
+    }
+  }
+};
+
+var selectedSocialButtons = selectFromData(SETTINGS, SOCIAL_BUTTON_DATA);
 
 Template.social_buttons.helpers({
   'socialButtons': function () {
-    return socialButtonData;
+    return selectedSocialButtons;
   }
 });
 
 Template.social_buttons.events({
   'click .social-button': function (event) {
-    var target = event.currentTarget.id;
+    var socialTarget = event.currentTarget.id;
     event.preventDefault();
 
+    var socialData = SOCIAL_BUTTON_DATA[socialTarget];
+
+    if (!SETTINGS.incrementing) {
+      socialData.openWindow(encodeURI(document.URL), encodeURI(document.title));
+    } else {
+
+    }
   }
 });
