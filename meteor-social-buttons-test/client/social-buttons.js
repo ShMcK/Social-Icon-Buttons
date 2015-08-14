@@ -1,6 +1,8 @@
+var testURL = 'http://www.google.com';
+
 var SOCIAL_BUTTON_DEFAULTS = {
   social: {
-    facebook: false,
+    facebook: true,
     twitter: true,
     google: false
   },
@@ -71,11 +73,12 @@ if (SETTINGS.useCount) {
   selectedSocialButtons.forEach(function (button) {
     $.ajax({
       type: 'GET',
-      url: button.countAPI + encodeURI(document.URL) + "&callback=?",
+      url: button.countAPI + encodeURI(testURL) + "&callback=?",
       contentType: 'application/json',
       dataType: 'jsonp',
       async: false,
       success: function (json) {
+        console.log(json);
         button.count = json[button.measure];
 
         if (!SETTINGS.incrementing) {
