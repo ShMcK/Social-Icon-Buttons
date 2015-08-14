@@ -1,27 +1,23 @@
-var SOCIAL_OPTIONS = ['facebook', 'google', 'twitter'];
 var testURL = 'http://www.google.com';
 
-// User Settings
-SOCIAL_BUTTON_SETTINGS = {
-  useCount: true,
-  incrementing: true,
-  facebook: true
-};
+SOCIAL_BUTTONS = {};
 
 // Defaults
-var SOCIAL_BUTTON_DEFAULTS = {
+var DEFAULTS = {
   facebook: true,
   twitter: true,
   incrementing: false,
   useCount: false,
   incrementerSpeed: 150
 };
+var SOCIAL_OPTIONS = ['facebook', 'google', 'twitter'];
 
 // Settings
-var SETTINGS = _.extend(SOCIAL_BUTTON_DEFAULTS, SOCIAL_BUTTON_SETTINGS);
+var SETTINGS = _.extend(DEFAULTS, SOCIAL_BUTTONS.settings);
+console.log(SETTINGS);
 
 // Data
-var SOCIAL_BUTTON_DATA = {
+var SOCIAL_DATA = {
   facebook: {
     link: '//www.facebook.com/sharer/sharer.php?u={{url}}&t={{title}}',
     classNames: 'fa fa-facebook',
@@ -64,14 +60,20 @@ function filterDataFromSettings(selected, values, shortList) {
     });
 }
 
-SOCIAL_BUTTONS = filterDataFromSettings(SETTINGS, SOCIAL_BUTTON_DATA, SOCIAL_OPTIONS);
+SOCIAL_BUTTONS.buttons = filterDataFromSettings(SETTINGS, SOCIAL_DATA, SOCIAL_OPTIONS);
+
+SOCIAL_BUTTONS.open = function (socialTarget, url, title) {
+  var url = encodeURI(url || document.URL);
+  var title = encodeURI(title || document.title);
+  SOCIAL_DATA[socialTarget].openWindow(url, title);
+};
 
 /**
  * Get Counts
  * adds selectedSocialButtons.count
  */
 if (SETTINGS.useCount) {
-  SOCIAL_BUTTONS.forEach(function (button) {
+  SOCIAL_BUTTONS.buttons.forEach(function (button) {
     $.ajax({
       type: 'GET',
       url: button.countAPI + encodeURI(testURL) + "&callback=?",
@@ -82,7 +84,7 @@ if (SETTINGS.useCount) {
         console.log(e.message);
       },
       success: function (json) {
-          button.count = json[button.measure];
+        button.count = json[button.measure];
         if (button.count) {
           if (!SETTINGS.incrementing) {
             /**
@@ -108,7 +110,7 @@ if (SETTINGS.useCount) {
               }, SETTINGS.incrementerSpeed);
             }
 
-            SOCIAL_BUTTONS.forEach(function (button) {
+            SOCIAL_BUTTONS.buttons.forEach(function (button) {
               incrementCount(button.count, button.name);
             });
           }
