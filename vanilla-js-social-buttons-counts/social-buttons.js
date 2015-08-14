@@ -29,7 +29,7 @@ function getJSON(url, success) {
 getJSON("http://cdn.api.twitter.com/1/urls/count.json?url=" + url + "&callback=?", function (json) {
   console.log('twitter', json.count);
   if (json.count) {
-    return incrementCount(json.count, 'twCount');
+    return incrementCount(json.count, 'twitter');
   }
 });
 
@@ -37,20 +37,18 @@ getJSON("http://cdn.api.twitter.com/1/urls/count.json?url=" + url + "&callback=?
 getJSON("http://graph.facebook.com/?id=http://" + url + "&callback=?", function (json) {
   console.log('facebook', json.shares);
   if (json.shares) {
-    return incrementCount(json.shares, 'fbCount');
+    return incrementCount(json.shares, 'facebook');
   }
 });
 
-function incrementCount(endValue, name) {
-  var times = 0;
+function incrementCount(end, name) {
+  var times = 1;
   var incrementer = {};
-  incrementer[name] = setInterval(function () {
-    // set new current
-    var newValue = Math.ceil(endValue / times);
-    // change DOM value
-    document.getElementsByClassName(name)[0].innerHTML = newValue;
-    // exit on 10th increment
-    if (++times === 10) {
+  incrementer[name] = setInterval(function() {
+    var newValue = Math.ceil(end * (times / 100));
+    document.getElementsByClassName(name + '-count')[0].innerHTML = newValue;
+    if (++times === 11) {
+      document.getElementsByClassName(name + '-count')[0].innerHTML = end;
       window.clearInterval(incrementer[name]);
     }
   }, 100);
