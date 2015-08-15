@@ -39,7 +39,7 @@ countSelector = function countSelector(name) {
 };
 
 getJSONCount = function getJSONCount(button, url) {
-  return $.getJSON(button.countAPI + encodeURI(url) + "&callback=?", function (json) {
+  return $.getJSON(button.countAPI + encodeURIComponent(url) + "&callback=?", function (json) {
     return json;
   });
 };

@@ -9,7 +9,7 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom('1.1.0.3');
-  api.use(['templating', 'fortawesome:fontawesome'], 'client');
+  api.use(['templating', 'fortawesome:fontawesome', 'underscore'], 'client');
   api.addFiles([
     'lib/social-buttons.html',
     'lib/defaults.js',

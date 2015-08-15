@@ -13,8 +13,8 @@ SocialButtons = {
   },
 
   open: function (socialTarget, url, title) {
-    url = encodeURI(url || document.URL);
-    title = encodeURI(title || document.title);
+    url = encodeURIComponent(url || document.URL);
+    title = encodeURIComponent(title || document.title);
     socialData[socialTarget].openWindow(url, title);
   },
 
