@@ -106,7 +106,7 @@ socialData = {
   },
   hackernews: {
     link: '//news.ycombinator.com/submitlink',
-    classNames: 'fa fa-hackernews',
+    classNames: 'fa fa-hacker-news',
     name: 'hackernews',
     openWindow: function (url, text) {
       window.open('//news.ycombinator.com/submitlink?u=' + url + '&t=' + text,

@@ -1,7 +1,7 @@
 defaults = {
   facebook: true,
   twitter: true,
-  google: false,
+  google: true,
   pinterest: false,
   delicious: false,
   tumblr: false,
@@ -11,6 +11,7 @@ defaults = {
   wordpress: false,
   hackernews: false,
   mail: false,
+
   incrementing: false,
   useCount: false,
   incrementerSpeed: 150
