@@ -1,11 +1,13 @@
-SOCIAL_BUTTONS.settings = {
+SocialButtons.config({
   useCount: true,
-  incrementing: true
-};
+  incrementing: true,
+  facebook: true,
+  twitter: true
+});
 
 Template.social_buttons.helpers({
   'socialButtons': function () {
-    return SOCIAL_BUTTONS.buttons;
+    return SocialButtons.get();
   }
 });
 
@@ -13,6 +15,6 @@ Template.social_buttons.events({
   'click .social-button': function (event) {
     var socialTarget = event.currentTarget.id;
     event.preventDefault();
-    SOCIAL_BUTTONS.open(socialTarget);
+    SocialButtons.open(socialTarget);
   }
 });

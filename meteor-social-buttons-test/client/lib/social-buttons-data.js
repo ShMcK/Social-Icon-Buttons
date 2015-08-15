@@ -1,23 +1,14 @@
-var testURL = 'http://www.google.com';
-
-SOCIAL_BUTTONS = {};
-
 // Defaults
-var DEFAULTS = {
+var defaults = {
   facebook: true,
   twitter: true,
   incrementing: false,
   useCount: false,
   incrementerSpeed: 150
 };
-var SOCIAL_OPTIONS = ['facebook', 'google', 'twitter'];
-
-// Settings
-var SETTINGS = _.extend(DEFAULTS, SOCIAL_BUTTONS.settings);
-console.log(SETTINGS);
-
+var socialOptions = ['facebook', 'google', 'twitter'];
 // Data
-var SOCIAL_DATA = {
+var socialData = {
   facebook: {
     link: '//www.facebook.com/sharer/sharer.php?u={{url}}&t={{title}}',
     classNames: 'fa fa-facebook',
@@ -47,6 +38,32 @@ var SOCIAL_DATA = {
   }
 };
 
+SocialButtons = {
+  options: {},
+
+  config: function (options) {
+    var validKeys = _.keys(defaults);
+    _.keys(options).forEach(function (key) {
+      if (_.indexOf(validKeys, key) >= 0) {
+        SocialButtons.options[key] = options[key];
+      } else {
+        throw key + ' is not a valid SocialButtons key.';
+      }
+    });
+  },
+
+  open: function (socialTarget, url, title) {
+    url = encodeURI(url || document.URL);
+    title = encodeURI(title || document.title);
+    socialData[socialTarget].openWindow(url, title);
+  },
+
+  get: function () {
+    return initButtons();
+  }
+};
+
+
 function filterDataFromSettings(selected, values, shortList) {
   return _.keys(selected).
     filter(function (settingsKey) {
@@ -60,62 +77,69 @@ function filterDataFromSettings(selected, values, shortList) {
     });
 }
 
-SOCIAL_BUTTONS.buttons = filterDataFromSettings(SETTINGS, SOCIAL_DATA, SOCIAL_OPTIONS);
-
-SOCIAL_BUTTONS.open = function (socialTarget, url, title) {
-  var url = encodeURI(url || document.URL);
-  var title = encodeURI(title || document.title);
-  SOCIAL_DATA[socialTarget].openWindow(url, title);
-};
-
 /**
- * Get Counts
- * adds selectedSocialButtons.count
+ * Increment Counts
  */
-if (SETTINGS.useCount) {
-  SOCIAL_BUTTONS.buttons.forEach(function (button) {
-    $.ajax({
-      type: 'GET',
-      url: button.countAPI + encodeURI(testURL) + "&callback=?",
-      contentType: 'application/json',
-      dataType: 'jsonp',
-      async: false,
-      error: function (e) {
-        console.log(e.message);
-      },
-      success: function (json) {
-        button.count = json[button.measure];
-        if (button.count) {
-          if (!SETTINGS.incrementing) {
-            /**
-             * Update counts
-             */
-            return document.getElementsByClassName(button.name + '-count')[0].innerHTML = button.count;
-          } else {
+function incrementCount(end, name, settings) {
+  var selector = countSelector(name);
+  var times = 0;
+  var incrementer = {};
+  incrementer[name] = setInterval(function () {
+    ++times;
+    var newValue = Math.ceil(end * (times / 10));
+    selector.text(newValue);
+    if (times === 10) {
+      selector.text(end);
+      window.clearInterval(incrementer[name]);
+    }
+  }, settings.incrementerSpeed);
+}
 
-            /**
-             * Increment Counts
-             */
-            function incrementCount(end, name) {
-              var times = 0;
-              var incrementer = {};
-              incrementer[name] = setInterval(function () {
-                ++times;
-                var newValue = Math.ceil(end * (times / 10));
-                document.getElementsByClassName(name + '-count')[0].innerHTML = newValue;
-                if (times === 10) {
-                  document.getElementsByClassName(name + '-count')[0].innerHTML = end;
-                  window.clearInterval(incrementer[name]);
-                }
-              }, SETTINGS.incrementerSpeed);
-            }
 
-            SOCIAL_BUTTONS.buttons.forEach(function (button) {
-              incrementCount(button.count, button.name);
-            });
-          }
-        }
-      }
-    });
+function countSelector(name) {
+  return $("." + name + "-count");
+}
+
+function getJSONCount(button, url) {
+  return $.getJSON(button.countAPI + encodeURI(url) + "&callback=?", function (json) {
+    console.log(json);
+    return json;
   });
+}
+
+
+function initButtons() {
+  // Settings
+  var settings = _.extend(defaults, SocialButtons.options);
+  SocialButtons.buttons = filterDataFromSettings(settings, socialData, socialOptions);
+
+  /**
+   * IF USECOUNT
+   */
+  if (settings.useCount) {
+    SocialButtons.buttons.forEach(function (button) {
+      getJSONCount(button, document.URL).done(function (json) {
+        if (json[button.measure]) {
+          button.count = json[button.measure];
+          console.log(button.name, button.count);
+        } else {
+          console.log('Error receiving ' + button.name + ' counts.');
+        }
+      }).then(function () {
+        /**
+         * IF INCREMENTING
+         */
+        if (settings.incrementing) {
+          /** Increment counts */
+          SocialButtons.buttons.forEach(function (button) {
+            incrementCount(button.count, button.name, settings);
+          });
+        } else {
+          /** Update counts */
+          countSelector(button.name).text(button.count);
+        }
+      });
+    });
+  }
+  return SocialButtons.buttons;
 }
