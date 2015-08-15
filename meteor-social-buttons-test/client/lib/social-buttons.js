@@ -1,13 +1,9 @@
-SocialButtons.config({
-  useCount: true,
-  incrementing: true,
-  facebook: true,
-  twitter: true
-});
-
 Template.social_buttons.helpers({
   'socialButtons': function () {
     return SocialButtons.get();
+  },
+  'useCount': function () {
+    return SocialButtons.settings.useCount;
   }
 });
 

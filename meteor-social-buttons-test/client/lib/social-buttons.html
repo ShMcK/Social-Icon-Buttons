@@ -5,7 +5,9 @@
         <a href="{{link}}" target="_blank" class="social-button" id="{{name}}">
           <i class="{{classNames}}"></i>
         </a>
-        <span class="{{name}}-count">0</span>
+        {{#if useCount}}
+          <span class="{{name}}-count">0</span>
+        {{/if}}
       </div>
     {{/each}}
   </section>
