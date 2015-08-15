@@ -18,7 +18,7 @@ socialData = {
     openWindow: function (url, text) {
       window.open('//plus.google.com/share?url=' + url,
         this.name,
-        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=255, width=550'
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
     },
     measure: '',
@@ -64,8 +64,8 @@ socialData = {
     link: 'http://www.tumblr.com/share',
     classNames: 'fa fa-tumblr',
     name: 'tumblr',
-    openWindow: function(url, text) {
-      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' +  text);
+    openWindow: function (url, text) {
+      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + text);
     },
     measure: '',
     countAPI: ''
@@ -74,8 +74,8 @@ socialData = {
     link: 'https://getpocket.com/save',
     classNames: 'fa fa-get-pocket',
     name: 'pocket',
-    openWindow: function(url, text) {
-      window.open('https://getpocket.com/save?url=' + url + '&title=' +  text);
+    openWindow: function (url, text) {
+      window.open('https://getpocket.com/save?url=' + url + '&title=' + text);
     },
     measure: '',
     countAPi: ''
@@ -84,7 +84,7 @@ socialData = {
     link: 'http://www.reddit.com/submit',
     classNames: 'fa fa-reddit',
     name: 'reddit',
-    openWindow: function(url, text) {
+    openWindow: function (url, text) {
       window.open('http://www.reddit.com/submit?url=' + url + '&title=' + text);
     }
   },
@@ -92,32 +92,34 @@ socialData = {
     link: 'http://www.linkedin.com/shareArticle',
     classNames: 'fa fa-linkedin',
     name: 'linkedin',
-    openWindow: function(url, text) {
-      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' +  text);
+    openWindow: function (url, text) {
+      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + text);
     }
   },
   wordpress: {
     link: 'http://wordpress.com/press-this.php',
     classNames: 'fa fa-wordpress',
     name: 'wordpress',
-    openWindow: function(url, text) {
-      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' +  text);
+    openWindow: function (url, text) {
+      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + text);
     }
   },
   hackernews: {
-    link: '',
+    link: '//news.ycombinator.com/submitlink',
     classNames: 'fa fa-hackernews',
     name: 'hackernews',
     openWindow: function (url, text) {
-      window.open();
+      window.open('//news.ycombinator.com/submitlink?u=' + url + '&t=' + text,
+        this.name,
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600')
     }
   },
   mail: {
     link: 'mailto:',
     classNames: 'fa fa-send',
     name: 'mail',
-    openWindow: function(url, text) {
-      window.open('mailto:?subject=' + text + '&body=' +  url);
+    openWindow: function (url, text) {
+      window.open('mailto:?subject=' + text + '&body=' + url);
     }
   }
 };
