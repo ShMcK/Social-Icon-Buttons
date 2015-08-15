@@ -10,6 +10,7 @@ defaults = {
   linkedin: false,
   wordpress: false,
   hackernews: false,
+  stumbledupon: false,
   mail: false,
 
   incrementing: false,

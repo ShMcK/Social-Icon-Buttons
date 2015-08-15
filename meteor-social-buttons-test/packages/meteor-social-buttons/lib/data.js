@@ -4,13 +4,15 @@ socialData = {
     classNames: 'fa fa-facebook',
     name: 'facebook',
     openWindow: function (url, text) {
-      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + text, this.name, 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + text,
+        this.name,
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
     },
     measure: 'shares',
     countAPI: 'http://graph.facebook.com/?id='
   },
   google: {
-    link: '//plus.google.com/share}',
+    link: '//clients6.google.com/rpc?key=', // requires an API_KEY
     classNames: 'fa fa-google-plus',
     width: 300,
     height: 600,
@@ -21,8 +23,8 @@ socialData = {
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
     },
-    measure: '',
-    countAPI: ''
+    measure: 'result.metadata.globalCounts.count',
+    countAPI: '//plus.google.com/ripple/details?url='
   },
   twitter: {
     link: '//twitter.com/share',
@@ -65,7 +67,9 @@ socialData = {
     classNames: 'fa fa-tumblr',
     name: 'tumblr',
     openWindow: function (url, text) {
-      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + text);
+      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550');
     },
     measure: '',
     countAPI: ''
@@ -75,7 +79,9 @@ socialData = {
     classNames: 'fa fa-get-pocket',
     name: 'pocket',
     openWindow: function (url, text) {
-      window.open('https://getpocket.com/save?url=' + url + '&title=' + text);
+      window.open('https://getpocket.com/save?url=' + url + '&title=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550');
     },
     measure: '',
     countAPi: ''
@@ -85,7 +91,9 @@ socialData = {
     classNames: 'fa fa-reddit',
     name: 'reddit',
     openWindow: function (url, text) {
-      window.open('http://www.reddit.com/submit?url=' + url + '&title=' + text);
+      window.open('http://www.reddit.com/submit?url=' + url + '&title=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550');
     }
   },
   linkedin: {
@@ -93,15 +101,21 @@ socialData = {
     classNames: 'fa fa-linkedin',
     name: 'linkedin',
     openWindow: function (url, text) {
-      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + text);
-    }
+      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550');
+    },
+    measure: 'count',
+    countAPI: 'http://www.linkedin.com/countserv/count/share?url='
   },
   wordpress: {
     link: 'http://wordpress.com/press-this.php',
     classNames: 'fa fa-wordpress',
     name: 'wordpress',
     openWindow: function (url, text) {
-      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + text);
+      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550');
     }
   },
   hackernews: {
@@ -121,6 +135,16 @@ socialData = {
     openWindow: function (url, text) {
       window.open('mailto:?subject=' + text + '&body=' + url);
     }
+  },
+  stumbledupon: {
+    link: '',
+    classNames: 'fa fa-stumbledupon',
+    name: 'stumbledupon',
+    openWindow: function (url, text) {
+
+    },
+    measure: 'result.views',
+    countAPI: 'http://www.stumbleupon.com/services/1.01/badge.getinfo?url='
   }
 };
 
