@@ -11,10 +11,13 @@ Package.onUse(function (api) {
   api.versionsFrom('1.1.0.3');
   api.use(['templating', 'fortawesome:fontawesome'], 'client');
   api.addFiles([
-    'client/lib/social-buttons.html',
-    'client/lib/social-buttons-data.js',
-    'client/lib/social-buttons.js',
-    'client/lib/social-buttons.css'
+    'lib/social-buttons.html',
+    'lib/defaults.js',
+    'lib/data.js',
+    'lib/functions.js',
+    'lib/social-buttons.js',
+    'lib/social-buttons-template.js',
+    'lib/social-buttons.css'
   ], 'client');
   api.export('SocialButtons', 'client');
 });
