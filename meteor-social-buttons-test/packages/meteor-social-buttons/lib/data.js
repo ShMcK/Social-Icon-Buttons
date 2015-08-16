@@ -22,9 +22,7 @@ socialData = {
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
-    },
-    measure: 'result.metadata.globalCounts.count',
-    countAPI: '//plus.google.com/ripple/details?url='
+    }
   },
   twitter: {
     link: '//twitter.com/share',
@@ -58,9 +56,7 @@ socialData = {
       window.open('//delicious.com/save?v=5&&noui&jump=close&url=' + url + '&title=' + text,
         this.name,
         'toolbar=no,width=550,height=550');
-    },
-    measure: '0["totalPosts"]',
-    countAPI: 'http://feeds.delicious.com/v2/json/urlinfo/data?url='
+    }
   },
   tumblr: {
     link: 'http://www.tumblr.com/share',
@@ -145,4 +141,3 @@ socialData = {
 };
 
 socialOptions = _.keys(socialData);
-console.log(socialOptions);
