@@ -1,5 +1,5 @@
 SocialButtons.config({
-  useCount: false,
+  useCount: true,
   incrementing: false,
   hackernews: true,
   pinterest: true,

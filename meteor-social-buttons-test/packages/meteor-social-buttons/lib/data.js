@@ -70,9 +70,7 @@ socialData = {
       window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + text,
         this.name,
         'toolbar=no,width=550,height=550');
-    },
-    measure: '',
-    countAPI: ''
+    }
   },
   pocket: {
     link: 'https://getpocket.com/save',
@@ -82,9 +80,7 @@ socialData = {
       window.open('https://getpocket.com/save?url=' + url + '&title=' + text,
         this.name,
         'toolbar=no,width=550,height=550');
-    },
-    measure: '',
-    countAPi: ''
+    }
   },
   reddit: {
     link: 'http://www.reddit.com/submit',
