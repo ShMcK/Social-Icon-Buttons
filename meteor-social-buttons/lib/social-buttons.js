@@ -19,9 +19,6 @@ SocialButtons = {
     return false;
   },
 
-  get: function () {
-    return initButtons();
-  },
   getSettings: function () {
     return this.settings;
   }
@@ -31,7 +28,7 @@ SocialButtons = {
 /**
  * Initialize SocialButtons
  */
-function initButtons() {
+Meteor.startup(function () {
   // Settings
   SocialButtons.settings = _.extend(defaults, SocialButtons.options);
   SocialButtons.buttons = filterDataFromSettings(SocialButtons.settings, socialData, socialOptions);
@@ -65,5 +62,4 @@ function initButtons() {
       });
     });
   }
-  return SocialButtons.buttons;
-}
+});

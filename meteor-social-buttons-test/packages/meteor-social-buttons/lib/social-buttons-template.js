@@ -1,6 +1,6 @@
 Template.social_buttons.helpers({
   'socialButtons': function () {
-    return SocialButtons.get();
+    return SocialButtons.buttons;
   },
   'useCount': function (hasMeasure) {
     return hasMeasure && SocialButtons.settings.useCount;

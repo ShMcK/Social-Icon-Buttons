@@ -1,6 +1,6 @@
 Package.describe({
   name: 'shmck:meteor-social-buttons',
-  version: '0.1.0',
+  version: '0.1.1',
   author: 'Shawn McKay',
   summary: 'Social Icon Buttons for Meteor',
   git: 'https://github.com/ShMcK/Social-Icon-Buttons',
