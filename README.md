@@ -5,7 +5,7 @@
 * Setup Button Styles with Font Awesome
 * Open Share/Tweet Windows
 
-**Part 2: Adding Counts**
+[**Part 2: Adding Counts**](http://www.shmck.com/incrementing-social-media-counters-in-vanilla-javascript/)
 
 * Display Share/Tweet Counts
 * Animate the count
