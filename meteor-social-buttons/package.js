@@ -18,7 +18,6 @@ Package.onUse(function (api) {
     'lib/social-buttons.js',
     'lib/social-buttons-template.js',
     'lib/social-buttons.css'
-
   ], 'client');
   api.export('SocialButtons', 'client');
 });

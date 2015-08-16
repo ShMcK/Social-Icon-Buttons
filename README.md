@@ -10,7 +10,7 @@
 * Display Share/Tweet Counts
 * Animate the count
 
-**Part 3: Making Components**
+[**Part 3: Making Components**](http://www.shmck.com/create-configure-and-publish-a-meteor-package/)
 
 * Using Meteor
 * Optional Configurations

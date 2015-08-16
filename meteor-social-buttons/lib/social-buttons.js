@@ -1,29 +1,31 @@
-SocialButtons = {
-  options: {},
+if (!SocialButtons) {
 
-  config: function (options) {
-    var validKeys = _.keys(defaults);
-    _.keys(options).forEach(function (key) {
-      if (_.indexOf(validKeys, key) >= 0) {
-        SocialButtons.options[key] = options[key];
-      } else {
-        throw key + ' is not a valid SocialButtons key.';
-      }
-    });
-  },
+  SocialButtons = {
+    options: {},
 
-  open: function (socialTarget, url, title) {
-    url = encodeURIComponent(url || document.URL);
-    title = encodeURIComponent(title || document.title);
-    socialData[socialTarget].openWindow(url, title);
-    return false;
-  },
+    config: function (options) {
+      var validKeys = _.keys(defaults);
+      _.keys(options).forEach(function (key) {
+        if (_.indexOf(validKeys, key) >= 0) {
+          SocialButtons.options[key] = options[key];
+        } else {
+          throw key + ' is not a valid SocialButtons key.';
+        }
+      });
+    },
 
-  getSettings: function () {
-    return this.settings;
-  }
-};
+    open: function (socialTarget, url, title) {
+      url = encodeURIComponent(url || document.URL);
+      title = encodeURIComponent(title || document.title);
+      socialData[socialTarget].openWindow(url, title);
+      return false;
+    },
 
+    getSettings: function () {
+      return this.settings;
+    }
+  };
+}
 
 /**
  * Initialize SocialButtons

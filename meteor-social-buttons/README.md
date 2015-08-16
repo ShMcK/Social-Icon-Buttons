@@ -1,6 +1,8 @@
-Social Button Icons
+#Social Button Icons
 
 Some social shares also have available count APIs.
+
+### Social Buttons
 
 * Facebook (#shares)
 * Twitter (#tweets)
@@ -16,10 +18,14 @@ Some social shares also have available count APIs.
 * Email
 
 
+### Setup
+
 Add Social Buttons
 
     {{> social_buttons}}
 
+
+### Configuration
 
 Default Settings: 
 
