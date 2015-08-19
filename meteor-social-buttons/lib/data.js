@@ -3,8 +3,8 @@ socialData = {
     link: '//www.facebook.com/sharer/sharer.php',
     classNames: 'fa fa-facebook',
     name: 'facebook',
-    openWindow: function (url, text) {
-      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + useVia() + text,
+    sharePath: function (url, text) {
+     return ('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
     },
@@ -17,8 +17,8 @@ socialData = {
     width: 300,
     height: 600,
     name: 'google',
-    openWindow: function (url, text) {
-      window.open('//plus.google.com/share?url=' + url + '?text=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('//plus.google.com/share?url=' + url + '?text=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
@@ -28,8 +28,8 @@ socialData = {
     link: '//twitter.com/share',
     classNames: 'fa fa-twitter',
     name: 'twitter',
-    openWindow: function (url, text) {
-      window.open('//twitter.com/share?url=' + url + '&text=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('//twitter.com/share?url=' + url + '&text=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=255, width=550');
     },
@@ -40,8 +40,8 @@ socialData = {
     link: '//pinterest.com/pin/create/button/',
     classNames: 'fa fa-pinterest',
     name: 'pinterest',
-    openWindow: function (url, text) {
-      window.open('//pinterest.com/pin/create/button/?url=' + url + '&description=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('//pinterest.com/pin/create/button/?url=' + url + '&description=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=750,height=288');
     },
@@ -52,8 +52,8 @@ socialData = {
     link: '//delicious.com/save',
     classNames: 'fa fa-delicious',
     name: 'delicious',
-    openWindow: function (url, text) {
-      window.open('//delicious.com/save?v=5&&noui&jump=close&url=' + url + '&title=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('//delicious.com/save?v=5&&noui&jump=close&url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -62,8 +62,8 @@ socialData = {
     link: 'http://www.tumblr.com/share',
     classNames: 'fa fa-tumblr',
     name: 'tumblr',
-    openWindow: function (url, text) {
-      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -72,8 +72,8 @@ socialData = {
     link: 'https://getpocket.com/save',
     classNames: 'fa fa-get-pocket',
     name: 'pocket',
-    openWindow: function (url, text) {
-      window.open('https://getpocket.com/save?url=' + url + '&title=' + text,
+    sharePath: function (url, text) {
+      return ('https://getpocket.com/save?url=' + url + '&title=' + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -82,8 +82,8 @@ socialData = {
     link: 'http://www.reddit.com/submit',
     classNames: 'fa fa-reddit',
     name: 'reddit',
-    openWindow: function (url, text) {
-      window.open('http://www.reddit.com/submit?url=' + url + '&title=' + useVia() + text,
+    sharePath: function (url, text) {
+      return('http://www.reddit.com/submit?url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -92,8 +92,8 @@ socialData = {
     link: 'http://www.linkedin.com/shareArticle',
     classNames: 'fa fa-linkedin',
     name: 'linkedin',
-    openWindow: function (url, text) {
-      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + useVia() + text,
+    sharePath: function (url, text) {
+      return('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     },
@@ -104,8 +104,8 @@ socialData = {
     link: 'http://wordpress.com/press-this.php',
     classNames: 'fa fa-wordpress',
     name: 'wordpress',
-    openWindow: function (url, text) {
-      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + useVia() + text,
+    sharePath: function (url, text) {
+      return ('http://wordpress.com/press-this.php?u=' + url + '&t=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -114,8 +114,8 @@ socialData = {
     link: '//news.ycombinator.com/submitlink',
     classNames: 'fa fa-hacker-news',
     name: 'hackernews',
-    openWindow: function (url, text) {
-      window.open('//news.ycombinator.com/submitlink?u=' + url + '&t=' + text,
+    sharePath: function (url, text) {
+      return ('//news.ycombinator.com/submitlink?u=' + url + '&t=' + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600')
     }
@@ -124,19 +124,31 @@ socialData = {
     link: 'mailto:',
     classNames: 'fa fa-send',
     name: 'mail',
-    openWindow: function (url, text) {
-      window.open('mailto:?subject=' + text + '&body=' + useVia() + url);
+    sharePath: function (url, text) {
+      return('mailto:?subject=' + text + '&body=' + useVia() + url);
     }
   },
   stumbledupon: {
-    link: '',
+    link: 'http://www.stumbleupon.com/hostedbadge.php?',
     classNames: 'fa fa-stumbledupon',
     name: 'stumbledupon',
-    openWindow: function (url, text) {
-
+    sharePath: function (url, text) {
+      return ('http://www.stumbleupon.com/submit?url=' + url + '&title=' + text,
+        this.name,
+        'toolbar=no,width=550,height=550')
     },
     measure: 'result.views',
     countAPI: 'http://www.stumbleupon.com/services/1.01/badge.getinfo?url='
+  },
+  digg: {
+    link: 'http://digg.com/submit?url=' + url + '&title=' + text + '&bodytext=' + text,
+    className: 'fa fa-digg',
+    name: 'digg',
+    sharePath: function(url, text) {
+      return ('http://digg.com/submit?',
+        this.name,
+        'toolbar=no,width=550,height=550');
+    }
   }
 };
 

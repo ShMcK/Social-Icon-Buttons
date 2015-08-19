@@ -18,7 +18,7 @@ if (!SocialButtons) {
       console.log(url);
       url = encodeURIComponent(url);
       text = encodeURIComponent(text);
-      socialData[socialTarget].openWindow(url, text);
+      window.open(socialData[socialTarget].sharePath(url, text));
       return false;
     },
 
