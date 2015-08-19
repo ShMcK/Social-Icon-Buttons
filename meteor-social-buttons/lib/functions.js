@@ -47,3 +47,9 @@ getJSONCount = function getJSONCount(button, url) {
 isInteger = function isInteger(n) {
   return n % 1 === 0;
 };
+
+useVia = function useVia() {
+  if (SocialButtons.settings.via.length) {
+    return encodeURIComponent('Via ' + SocialButtons.settings.via + ' ');
+  }
+};

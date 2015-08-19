@@ -47,6 +47,7 @@ Default Settings:
       incrementing: false,
       useCount: false,
       incrementerSpeed: 150
+      via: ''
     };
     
 Configure Settings
@@ -69,3 +70,10 @@ Enable incrementing counts:
       incrementing: true,
       incrementingSpeed: 200
     });
+    
+Enable "via" message
+
+    SocialButtons.config({
+      via: '@ShMcK'
+    });
+

@@ -15,5 +15,6 @@ defaults = {
 
   incrementing: false,
   useCount: false,
-  incrementerSpeed: 150
+  incrementerSpeed: 150,
+  via: ''
 };

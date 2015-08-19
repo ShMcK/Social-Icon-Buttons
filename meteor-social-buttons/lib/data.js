@@ -4,7 +4,7 @@ socialData = {
     classNames: 'fa fa-facebook',
     name: 'facebook',
     openWindow: function (url, text) {
-      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + text,
+      window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
     },
@@ -18,7 +18,7 @@ socialData = {
     height: 600,
     name: 'google',
     openWindow: function (url, text) {
-      window.open('//plus.google.com/share?url=' + url + '?text=' + text,
+      window.open('//plus.google.com/share?url=' + url + '?text=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
@@ -29,7 +29,7 @@ socialData = {
     classNames: 'fa fa-twitter',
     name: 'twitter',
     openWindow: function (url, text) {
-      window.open('//twitter.com/share?url=' + url + '&text=' + text,
+      window.open('//twitter.com/share?url=' + url + '&text=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=255, width=550');
     },
@@ -41,7 +41,7 @@ socialData = {
     classNames: 'fa fa-pinterest',
     name: 'pinterest',
     openWindow: function (url, text) {
-      window.open('//pinterest.com/pin/create/button/?url=' + url + '&description=' + text,
+      window.open('//pinterest.com/pin/create/button/?url=' + url + '&description=' + useVia() + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=750,height=288');
     },
@@ -53,7 +53,7 @@ socialData = {
     classNames: 'fa fa-delicious',
     name: 'delicious',
     openWindow: function (url, text) {
-      window.open('//delicious.com/save?v=5&&noui&jump=close&url=' + url + '&title=' + text,
+      window.open('//delicious.com/save?v=5&&noui&jump=close&url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -63,7 +63,7 @@ socialData = {
     classNames: 'fa fa-tumblr',
     name: 'tumblr',
     openWindow: function (url, text) {
-      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + text,
+      window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -83,7 +83,7 @@ socialData = {
     classNames: 'fa fa-reddit',
     name: 'reddit',
     openWindow: function (url, text) {
-      window.open('http://www.reddit.com/submit?url=' + url + '&title=' + text,
+      window.open('http://www.reddit.com/submit?url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -93,7 +93,7 @@ socialData = {
     classNames: 'fa fa-linkedin',
     name: 'linkedin',
     openWindow: function (url, text) {
-      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + text,
+      window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     },
@@ -105,7 +105,7 @@ socialData = {
     classNames: 'fa fa-wordpress',
     name: 'wordpress',
     openWindow: function (url, text) {
-      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + text,
+      window.open('http://wordpress.com/press-this.php?u=' + url + '&t=' + useVia() + text,
         this.name,
         'toolbar=no,width=550,height=550');
     }
@@ -125,7 +125,7 @@ socialData = {
     classNames: 'fa fa-send',
     name: 'mail',
     openWindow: function (url, text) {
-      window.open('mailto:?subject=' + text + '&body=' + url);
+      window.open('mailto:?subject=' + text + '&body=' + useVia() + url);
     }
   },
   stumbledupon: {
