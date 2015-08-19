@@ -9,5 +9,8 @@ SocialButtons.config({
   reddit: true,
   linkedin: true,
   wordpress: true,
-  mail: true
+  digg: true,
+  mail: true,
+  weibo: true,
+  renren: true
 });

@@ -15,9 +15,6 @@ Some social shares also have available count APIs.
 * Reddit
 * Wordpress
 * Hacker News
-* Digg
-* Renren
-* Weibo
 * Email
 
 
@@ -43,7 +40,7 @@ Default Settings:
     defaults = {
       facebook: true,
       twitter: true,
-      google: true,
+      google: false,
       pinterest: false,
       delicious: false,
       tumblr: false,
@@ -52,15 +49,12 @@ Default Settings:
       linkedin: false,
       wordpress: false,
       hackernews: false,
-      stumbleupon: false,
-      digg: false,
-      renren: false,
-      weibo: false,
+      stumbledupon: false,
       mail: false,
     
       incrementing: false,
       useCount: false,
-      incrementerSpeed: 150,
+      incrementerSpeed: 150
       via: ''
     };
     

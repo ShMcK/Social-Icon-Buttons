@@ -1,0 +1,19 @@
+.social-button-group {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.social-button-group a {
+  text-decoration: none;
+  color: grey;
+}
+
+.social-button-group a:hover {
+  color: black;
+}
+
+.social-button-group span {
+  margin-left: 5px;
+  color: grey;
+  font-size: 0.8em;
+}
