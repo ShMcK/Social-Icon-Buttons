@@ -1,5 +1,8 @@
 ## Social Icon Buttons
 
+See the buttons in action at [tryangular2.com](meteor-social-buttons). 
+*Yes, that's an Angular site in Meteor.*
+
 [**Part 1: Custom Buttons**](http://www.shmck.com/custom-social-buttons-in-vanilla-javascript/)
 
 * Setup Button Styles with Font Awesome
