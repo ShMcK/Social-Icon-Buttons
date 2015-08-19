@@ -18,7 +18,7 @@ socialData = {
     height: 600,
     name: 'google',
     openWindow: function (url, text) {
-      window.open('//plus.google.com/share?url=' + url,
+      window.open('//plus.google.com/share?url=' + url + '?text=' + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300, width=600'
       );
@@ -29,7 +29,7 @@ socialData = {
     classNames: 'fa fa-twitter',
     name: 'twitter',
     openWindow: function (url, text) {
-      window.open('//twitter.com/share?text=' + text,
+      window.open('//twitter.com/share?url=' + url + '&text=' + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=255, width=550');
     },
@@ -41,7 +41,7 @@ socialData = {
     classNames: 'fa fa-pinterest',
     name: 'pinterest',
     openWindow: function (url, text) {
-      window.open('//pinterest.com/pin/create/button/?url=' + url + 'description=' + text,
+      window.open('//pinterest.com/pin/create/button/?url=' + url + '&description=' + text,
         this.name,
         'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=750,height=288');
     },
