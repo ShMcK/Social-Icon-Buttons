@@ -25,6 +25,14 @@ Add Social Buttons
     {{> social_buttons}}
 
 
+### Url & Text
+
+These default to `document.url` & `document.title`.
+
+Pass in custom urls with `url` and `text`.
+
+    {{> social_buttons url=url text=title}}
+
 ### Configuration
 
 Default Settings: 
@@ -77,3 +85,24 @@ Enable "via" message
       via: '@ShMcK'
     });
 
+
+### Styles
+
+Current Styles. Override the styles to fit your project.
+
+    .social-button-group {
+      display: inline-block;
+      margin: 0 8px;
+    }
+    .social-button-group a {
+      text-decoration: none;
+      color: grey;
+    }
+    .social-button-group a:hover {
+      color: black;
+    }
+    .social-button-group span {
+      margin-left: 5px;
+      color: grey;
+      font-size: 0.8em;
+    }
