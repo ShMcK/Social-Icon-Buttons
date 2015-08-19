@@ -8,9 +8,11 @@ Template.social_buttons.helpers({
 });
 
 Template.social_buttons.events({
-  'click .social-button': function (event) {
+  'click .social-button': function (event, template) {
     var socialTarget = event.currentTarget.id;
+    var url = template.data.url || document.url;
+    var text = template.data.text || document.title;
     event.preventDefault();
-    SocialButtons.open(socialTarget);
+    SocialButtons.open(socialTarget, url, text);
   }
 });

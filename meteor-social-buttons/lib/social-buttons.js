@@ -14,10 +14,11 @@ if (!SocialButtons) {
       });
     },
 
-    open: function (socialTarget, url, title) {
-      url = encodeURIComponent(url || document.URL);
-      title = encodeURIComponent(title || document.title);
-      socialData[socialTarget].openWindow(url, title);
+    open: function (socialTarget, url, text) {
+      console.log(url);
+      url = encodeURIComponent(url);
+      text = encodeURIComponent(text);
+      socialData[socialTarget].openWindow(url, text);
       return false;
     },
 

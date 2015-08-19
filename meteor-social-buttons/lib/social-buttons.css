@@ -1,10 +1,6 @@
-.social-buttons {
-  padding: 40px;
-}
-
 .social-button-group {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 8px;
 }
 
 .social-button-group a {

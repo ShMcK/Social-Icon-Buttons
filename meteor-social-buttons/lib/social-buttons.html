@@ -1,6 +1,6 @@
 <template name="social_buttons">
-  <section class="social-buttons">
-    {{#each socialButtons}}
+  <span class="social-buttons">
+    {{#each socialButtons url text}}
       <div class="social-button-group">
         <a href="{{link}}" target="_blank" class="social-button" id="{{name}}">
           <i class="{{classNames}}"></i>
@@ -10,5 +10,5 @@
         {{/if}}
       </div>
     {{/each}}
-  </section>
+  </span>
 </template>
