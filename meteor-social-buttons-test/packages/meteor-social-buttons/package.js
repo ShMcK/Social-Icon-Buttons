@@ -1,6 +1,6 @@
 Package.describe({
   name: 'shmck:meteor-social-buttons',
-  version: '0.1.1',
+  version: '0.1.6',
   author: 'Shawn McKay',
   summary: 'Social Icon Buttons for Meteor',
   git: 'https://github.com/ShMcK/Social-Icon-Buttons',
@@ -26,5 +26,9 @@ Package.onTest(function (api) {
   api.use('tinytest');
   api.use('fortawesome:fontawesome@4.4.0');
   api.use('shmck:meteor-social-buttons');
-  api.addFiles('social-buttons-tests.js');
+  api.addFiles([
+    'tests/client/config.js',
+    'tests/client/index.html'
+  ], 'client');
+  api.addFiles('tests/social-buttons.spec.js');
 });

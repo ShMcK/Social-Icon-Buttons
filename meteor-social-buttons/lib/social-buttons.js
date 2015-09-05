@@ -15,7 +15,12 @@ if (!SocialButtons) {
     },
 
     open: function (socialTarget, url, text) {
-      console.log(url);
+      if (!_.isString(url)) {
+        throw 'Social Buttons Error: url is not a string';
+      }
+      if (!_.isString(text)) {
+        throw 'Social Buttons Error: text is not a string';
+      }
       url = encodeURIComponent(url);
       text = encodeURIComponent(text);
       socialData[socialTarget].sharePath(url, text);
