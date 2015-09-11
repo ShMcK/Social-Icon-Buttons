@@ -57,6 +57,8 @@ Default Settings:
       renren: false,
       weibo: false,
       mail: false,
+      
+      square: false, // square shaped icons
     
       incrementing: false,
       useCount: false,
@@ -68,7 +70,8 @@ Configure Settings
    
     SocialButtons.config({
       facebook: false,
-      google: true
+      google: true,
+      square: true
     });
     
 Enable counts: 

@@ -16,6 +16,8 @@ defaults = {
   weibo: false,
   mail: false,
 
+  square: false,
+
   incrementing: false,
   useCount: false,
   incrementerSpeed: 150,
