@@ -31,9 +31,11 @@ Package.onTest(function (api) {
   api.use('tinytest');
   api.use('fortawesome:fontawesome@4.4.0');
   api.use('shmck:meteor-social-buttons');
-  api.addFiles([
-    'tests/client/config.js',
+  api.addAssets([
     'tests/client/index.html'
+  ], 'client');
+  api.addFiles([
+    'tests/client/config.js'
   ], 'client');
   api.addFiles('tests/social-buttons.spec.js');
 });
