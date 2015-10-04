@@ -2,6 +2,8 @@
 
 Some social shares also have available count APIs.
 
+Now working with Meteor 1.2.
+
 ### Social Buttons
 
 * Facebook (#shares)

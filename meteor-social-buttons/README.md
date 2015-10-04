@@ -2,6 +2,8 @@
 
 Some social shares also have available count APIs.
 
+Now working with Meteor 1.2.
+
 ### Social Buttons
 
 * Facebook (#shares)
@@ -57,8 +59,6 @@ Default Settings:
       renren: false,
       weibo: false,
       mail: false,
-      
-      square: false, // square shaped icons
     
       incrementing: false,
       useCount: false,
@@ -70,8 +70,7 @@ Configure Settings
    
     SocialButtons.config({
       facebook: false,
-      google: true,
-      square: true
+      google: true
     });
     
 Enable counts: 

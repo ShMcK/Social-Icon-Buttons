@@ -1,7 +1,15 @@
+function isSquare () {
+  return '';
+  // fix later
+  //if (SocialButtons.settings.square) {
+  //  return '-square';
+  //}
+}
+
 socialData = {
   facebook: {
     link: '//www.facebook.com/sharer/sharer.php',
-    classNames: 'fa fa-facebook',
+    classNames: 'fa fa-facebook' + isSquare(),
     name: 'facebook',
     sharePath: function (url, text) {
       window.open('//www.facebook.com/sharer/sharer.php?u=' + url + '&t=' + useVia() + text,
@@ -13,7 +21,7 @@ socialData = {
   },
   google: {
     link: '//clients6.google.com/rpc?key=', // requires an API_KEY
-    classNames: 'fa fa-google-plus',
+    classNames: 'fa fa-google-plus' + isSquare(),
     width: 300,
     height: 600,
     name: 'google',
@@ -26,7 +34,7 @@ socialData = {
   },
   twitter: {
     link: '//twitter.com/share',
-    classNames: 'fa fa-twitter',
+    classNames: 'fa fa-twitter' + isSquare(),
     name: 'twitter',
     sharePath: function (url, text) {
       window.open('//twitter.com/share?url=' + url + '&text=' + useVia() + text,
@@ -38,7 +46,7 @@ socialData = {
   },
   pinterest: {
     link: '//pinterest.com/pin/create/button/',
-    classNames: 'fa fa-pinterest',
+    classNames: 'fa fa-pinterest' + isSquare(),
     name: 'pinterest',
     sharePath: function (url, text) {
       window.open('//pinterest.com/pin/create/button/?url=' + url + '&description=' + useVia() + text,
@@ -60,7 +68,7 @@ socialData = {
   },
   tumblr: {
     link: 'http://www.tumblr.com/share',
-    classNames: 'fa fa-tumblr',
+    classNames: 'fa fa-tumblr' + isSquare(),
     name: 'tumblr',
     sharePath: function (url, text) {
       window.open('http://www.tumblr.com/share?v=3&u=' + url + '&t=' + useVia() + text,
@@ -80,7 +88,7 @@ socialData = {
   },
   reddit: {
     link: 'http://www.reddit.com/submit',
-    classNames: 'fa fa-reddit',
+    classNames: 'fa fa-reddit' + isSquare(),
     name: 'reddit',
     sharePath: function (url, text) {
       window.open('http://www.reddit.com/submit?url=' + url + '&title=' + useVia() + text,
@@ -90,7 +98,7 @@ socialData = {
   },
   linkedin: {
     link: 'http://www.linkedin.com/shareArticle',
-    classNames: 'fa fa-linkedin',
+    classNames: 'fa fa-linkedin' + isSquare(),
     name: 'linkedin',
     sharePath: function (url, text) {
       window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + useVia() + text,

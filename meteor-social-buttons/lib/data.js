@@ -1,7 +1,9 @@
 function isSquare () {
-  if (SocialButtons.settings.square) {
-    return '-square';
-  }
+  return '';
+  // fix later
+  //if (SocialButtons.settings.square) {
+  //  return '-square';
+  //}
 }
 
 socialData = {
